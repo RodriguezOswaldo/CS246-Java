@@ -13,11 +13,26 @@ public class Test {
         System.out.println("Password: " + user.getPassword());
         System.out.println("Salt: " + user.getSalt());
         System.out.println("Hashed Password: " + user.getHashedPassword());
+
         try{
             NSALoginController.hashUserPassword(user);
+            System.out.println("Password: " + user.getPassword());
+            System.out.println("Salt: " + user.getSalt());
+            System.out.println("Password: " + user.getHashedPassword());
+
+            System.out.print("Enter password: ");
+            password = sc.nextLine();
+            user.setPassword(password);
+            if(NSALoginController.verifyPassword(user))
+            {
+                System.out.println("Verified!");
+            }
+            else{
+                System.out.println("Not Verified!");
+            }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("General Exception : " + e.toString());
         }
     }
 }
