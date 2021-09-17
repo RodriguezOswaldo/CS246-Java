@@ -4,10 +4,14 @@ public class Calculator {
     //member data
     //scope datatype name;
     private float result;
-    //member method/function
+
+    //class constructor, it is created because there is a member data that needs to be initialized, it has the same class name
     public Calculator(){
         result = 0.0f;
     }
+
+    //member method/function
+    //scope void = no return name( parameters passed)
     public void add(float value){
         result += value;
     }
