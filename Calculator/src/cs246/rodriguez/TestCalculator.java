@@ -10,6 +10,7 @@ public class TestCalculator {
     calc.subtract(1.0f);
     calc.divide(2.0f);
     System.out.println("Result = "+ calc.getResult());
+    // Continue in numeral 15
     }
 
 }
