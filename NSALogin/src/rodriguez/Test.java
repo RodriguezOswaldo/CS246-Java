@@ -34,5 +34,6 @@ public class Test {
         } catch (Exception e) {
             System.out.println("General Exception : " + e.toString());
         }
+        // continue part II
     }
 }
