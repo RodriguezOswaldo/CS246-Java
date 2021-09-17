@@ -10,4 +10,25 @@ public class Account {
         this.lastPurchase = lastPurchase;
         this.daysSincePurchase = daysSincePurchase;
     }
+    // gets and setters for data members
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+    public String getLastPurchase(){
+        return name;
+    }
+    public void setLastPurchase(String lastPurchase){
+        this.lastPurchase = lastPurchase;
+    }
+    public int getDaysSincePurchase(){
+        return daysSincePurchase;
+    }
+    public void setDaysSincePurchase(int daysSincePurchase){
+        this.daysSincePurchase = daysSincePurchase;
+    }
+
+
 }
