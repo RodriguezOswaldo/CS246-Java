@@ -10,7 +10,7 @@ public class LetterGenerator {
 
     public LetterGenerator(){
         accounts = new ArrayList<Account>();
-        formLetter = "Dear [name], its been [days] since your last purchase " + "of the [purchase]. We hope to see you again soon. ";
+        formLetter = "Dear [name], its been [days] days since your last purchase " + "of the [purchase]. We hope to see you again soon. ";
     }
     //Member functions
     public void addAccount(){
@@ -32,8 +32,24 @@ public class LetterGenerator {
     public void generateLetters(){
         //looping the Array to generate letters based in the data added in line accounts.add
         for (Account currAccount: accounts){
-            String letter  = formLetter
+            String letter  = formLetter.replace("[name]", currAccount.getName());
+            letter = letter.replace("[days]", String.valueOf(currAccount.getDaysSincePurchase()));
+            letter = letter.replace("[purchase]", currAccount.getLastPurchase());
+            System.out.println(letter);
+            System.out.println();
         }
+    }
+
+    public static void main(String[] args) {
+        LetterGenerator letGen = new LetterGenerator();
+        System.out.println("Welcome Customer! ");
+        letGen.addAccount();
+        System.out.println("Next Customer: ");
+        letGen.addAccount();
+        System.out.println("Next Customer: ");
+        System.out.println();
+        letGen.addAccount();
+        letGen.generateLetters();
     }
 
 }

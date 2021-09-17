@@ -18,7 +18,7 @@ public class Account {
         this.name = name;
     }
     public String getLastPurchase(){
-        return name;
+        return lastPurchase ;
     }
     public void setLastPurchase(String lastPurchase){
         this.lastPurchase = lastPurchase;
