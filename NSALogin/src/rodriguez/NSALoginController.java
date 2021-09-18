@@ -55,6 +55,8 @@ import java.util.Base64;
  *
  * This code was adapted from <a href="http://stackoverflow.com/a/18143616/28106">this Stack Overflow post</a>.
  */
+
+
 public final class NSALoginController {
 
     // The SecureRandom() class is a special subclass of Random() in
@@ -67,6 +69,7 @@ public final class NSALoginController {
     // These constant values are used by the hash algorithm.
     private static final int ITERATIONS = 10000;
     private static final int KEY_LENGTH = 256;
+
 
     // By using a private constructor, we prevent instances of this class from being created
     private NSALoginController() {
@@ -103,11 +106,32 @@ public final class NSALoginController {
      * @param user The user whose password needs to be hashed.
      * @exception Exception If there is a problem with the chosen hash function.
      */
+    public class WeakPasswordException extends Exception{
+                public WeakPasswordException(String errorMessage)
+        {
+            super(errorMessage);
+        }
+    }
+
     public static void hashUserPassword(User user) throws Exception {
 
         // Get the next random salt value to use for this password
         byte[] salt = getNextSalt();
         char[] password = user.getPassword().toCharArray();
+
+
+        if(password.length < 8){
+            throw new WeakPasswordException("Password must be at least 8 characters long");
+        }
+        boolean hasDigit = false;
+        for (Character c : password){
+            if (Character.isDigit(c)){
+                hasDigit = true;
+            }
+        }
+        if (!hasDigit){
+            throw new Exception("Password must contain at least 1 digit.");
+        }
 
         // Once we've generated the hash, clear the old password
         // from memory for security purposes
@@ -168,4 +192,6 @@ public final class NSALoginController {
         // can assume the passwords do as well.
         return true;
     }
+
+
 }
