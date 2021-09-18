@@ -106,22 +106,21 @@ public final class NSALoginController {
      * @param user The user whose password needs to be hashed.
      * @exception Exception If there is a problem with the chosen hash function.
      */
-    public class WeakPasswordException extends Exception{
-                public WeakPasswordException(String errorMessage)
+    public static class WeakPasswordException extends Exception{
+        public WeakPasswordException(String errorMessage)
         {
             super(errorMessage);
         }
     }
 
-    public static void hashUserPassword(User user) throws Exception {
+    public static void hashUserPassword(User user) throws Exception, WeakPasswordException {
 
         // Get the next random salt value to use for this password
         byte[] salt = getNextSalt();
         char[] password = user.getPassword().toCharArray();
 
-
         if(password.length < 8){
-            throw new WeakPasswordException("Password must be at least 8 characters long");
+            throw new WeakPasswordException("Password must be at least 8 characters long.");
         }
         boolean hasDigit = false;
         for (Character c : password){
@@ -130,7 +129,7 @@ public final class NSALoginController {
             }
         }
         if (!hasDigit){
-            throw new Exception("Password must contain at least 1 digit.");
+            throw new WeakPasswordException("Password must contain at least 1 digit.");
         }
 
         // Once we've generated the hash, clear the old password

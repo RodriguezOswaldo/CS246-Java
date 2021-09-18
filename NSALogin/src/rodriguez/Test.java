@@ -10,13 +10,17 @@ public class Test {
         String password = sc.nextLine();
         User user = new User(password);
 
-        //Setting passwords
-        System.out.println("Password: " + user.getPassword());
-        System.out.println("Salt: " + user.getSalt());
-        System.out.println("Hashed Password: " + user.getHashedPassword());
+
 
         try{
+            //Setting passwords
+            System.out.println("Password: " + user.getPassword());
+            System.out.println("Salt: " + user.getSalt());
+            System.out.println("Hashed Password: " + user.getHashedPassword());
+
             NSALoginController.hashUserPassword(user);
+
+
             System.out.println("Password: " + user.getPassword());
             System.out.println("Salt: " + user.getSalt());
             System.out.println("Password: " + user.getHashedPassword());
@@ -24,17 +28,21 @@ public class Test {
             System.out.print("Enter password: ");
             password = sc.nextLine();
             user.setPassword(password);
-            if(NSALoginController.verifyPassword(user))
-            {
+
+
+            if(NSALoginController.verifyPassword(user)){
                 System.out.println("Verified!");
             }
             else{
                 System.out.println("Not Verified!");
             }
 
-        } catch (Exception e) {
+        }
+        catch (NSALoginController.WeakPasswordException e) {
+            System.out.println("Weak Password Error: " + e.getMessage());
+        }
+        catch (Exception e) {
             System.out.println("General Exception : " + e.toString());
         }
-        // continue part II
     }
 }
