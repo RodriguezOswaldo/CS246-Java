@@ -5,6 +5,7 @@ public interface Practice {
     public void changeGear(int newValue);
     public void speedUp(int newValue);
     public void applyBrakes(int decrement);
+
 }
 
 
