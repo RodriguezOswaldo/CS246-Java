@@ -5,7 +5,7 @@ public class Calculator {
     //scope datatype name;
     private float result;
 
-    //class constructor, it is created because there is a member data that needs to be initialized, it has the same class name
+    //class constructor, created to initialized member data, it uses the same class name
     public Calculator(){
         result = 0.0f;
     }

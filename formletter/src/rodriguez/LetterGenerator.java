@@ -10,7 +10,8 @@ public class LetterGenerator {
 
     public LetterGenerator(){
         accounts = new ArrayList<Account>();
-        formLetter = "Dear [name], its been [days] days since your last purchase " + "of the [purchase]. We hope to see you again soon. ";
+        formLetter = "Dear [name], its been [days] days since your last purchase " +
+                "of the [purchase]. We hope to see you again soon. ";
     }
     //Member functions
     public void addAccount(){
