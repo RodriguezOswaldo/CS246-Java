@@ -35,6 +35,12 @@ public class Game {
 			Animal a = new Animal();
 			creatures.add(a);
 		}
+
+		// add 10 Zombie instances to the List of Creature objects created at the start of the simulation.
+		for(int i = 0; i < 10; i++) {
+			Zombie z = new Zombie();
+			creatures.add(z);
+		}
 		
 		// Create the world
 		_theWorld = new World(creatures);

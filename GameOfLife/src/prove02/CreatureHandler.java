@@ -92,9 +92,7 @@ public class CreatureHandler
 		for(Creature c : _creatures) {
 			if(c == source || !c.isAlive())
 				continue;
-				
-			if(c.getLocation().x == newPoint.x && 
-			   c.getLocation().y == newPoint.y)
+			if(c.getLocation().x == newPoint.x && c.getLocation().y == newPoint.y)
 				return c;
 		}
 		
