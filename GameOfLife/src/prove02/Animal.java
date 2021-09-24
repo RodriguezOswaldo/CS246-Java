@@ -14,6 +14,7 @@ import java.util.Random;
 public class Animal extends Creature implements Movable, Aggressor {
 	
 	Random _rand;
+	int plantEaten;
 	
 	/**
 	* Creates an animal with 1 health point.
@@ -21,6 +22,7 @@ public class Animal extends Creature implements Movable, Aggressor {
 	public Animal() {
 		_rand = new Random();
 		_health = 1;
+		plantEaten = 1;
 	}
 	
 	// No javadocs are necessary for these methods because they will inherit the 
@@ -49,6 +51,9 @@ public class Animal extends Creature implements Movable, Aggressor {
 		if(target instanceof Plant) {
 			target.takeDamage(1);
 			_health++;
+			plantEaten++;
+			System.out.println("Plant eaten by Animal #" + plantEaten);
+
 		}
 	}
 	

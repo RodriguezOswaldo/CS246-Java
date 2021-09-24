@@ -8,15 +8,29 @@ import java.util.Random;
 // it should implement the Movable, Aware, and Aggressor interfaces.
 public class Wolf extends Creature implements Movable, Aware, Aggressor{
     Random _rand;
+    private  WolfDirection wolfDirection;
 
     public  Wolf(){
         _health = 1;
         _rand = new Random();
+        int randDirection = _rand.nextInt(4);
+        if (randDirection == 0){
+            wolfDirection = WolfDirection.Up;
+        }
+        else if( randDirection == 1){
+            wolfDirection = WolfDirection.Down;
+        }
+        else if(randDirection == 2){
+            wolfDirection = WolfDirection.Left;
+        }
+        else{
+            wolfDirection = WolfDirection.Right;
+        }
     }
 
     @Override
     public void attack(Creature target) {
-        if (target != null && !(target instanceof Plant) || !(target instanceof Zombie)){
+        if (target instanceof Animal){
             target.takeDamage(5);
         }
     }
@@ -43,6 +57,17 @@ public class Wolf extends Creature implements Movable, Aware, Aggressor{
 
     @Override
     public void move() {
-
+        if (wolfDirection == WolfDirection.Up){
+            _location.y--;
+        }
+        else if(wolfDirection == WolfDirection.Right){
+            _location.x++;
+        }
+        else if(wolfDirection == WolfDirection.Down) {
+            _location.y++;
+        }
+        else if(wolfDirection == WolfDirection.Left){
+            _location.x--;
+        }
     }
 }
