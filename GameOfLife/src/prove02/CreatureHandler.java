@@ -120,31 +120,30 @@ public class CreatureHandler
 		// which creatures implement which behaviors, we can use the instanceof keyword
 		// to see if a given instance implements a particular interface.
 		for(Creature c : _creatures) {
-				
-				// Skip dead creatures
-				if(!c.isAlive())
-					continue;
+			// Skip dead creatures
+			if(!c.isAlive())
+				continue;
 
-				if(c instanceof Aware) {
-					Creature above = getTarget(c, 0, -1);
-					Creature below = getTarget(c, 0, 1);
-					Creature left = getTarget(c, -1, 0);
-					Creature right = getTarget(c, 1, 0);
+			if(c instanceof Aware) {
+				Creature above = getTarget(c, 0, -1);
+				Creature below = getTarget(c, 0, 1);
+				Creature left = getTarget(c, -1, 0);
+				Creature right = getTarget(c, 1, 0);
 
-					Aware a = (Aware)c;
-					a.senseNeighbors(above, below, left, right);
-				}
-
-				if(c instanceof Movable) {
-					handleMove(c);
-				}
-				
-				if(c instanceof Aggressor) {
-					Creature target = getTarget(c, 0, 0);
-					Aggressor a = (Aggressor)c;
-					a.attack(target);
-				}
-				
+				Aware a = (Aware)c;
+				a.senseNeighbors(above, below, left, right);
 			}
+
+			if(c instanceof Movable) {
+				handleMove(c);
+			}
+
+			if(c instanceof Aggressor) {
+				Creature target = getTarget(c, 0, 0);
+				Aggressor a = (Aggressor)c;
+				a.attack(target);
+			}
+
+		}
 	}
 }
