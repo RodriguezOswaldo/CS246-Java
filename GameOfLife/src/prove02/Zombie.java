@@ -15,7 +15,7 @@ public class Zombie extends Creature implements Movable, Aggressor{
 // They should inflict 10 points of damage when they attack.
     @Override
     public void attack(Creature target) {
-        if (target!= null && (target instanceof Plant)){
+        if (target != null && !(target instanceof Plant)){
             target.takeDamage(10);
         }
 
@@ -45,6 +45,5 @@ public class Zombie extends Creature implements Movable, Aggressor{
             default:
                 break;
         }
-
     }
 }
