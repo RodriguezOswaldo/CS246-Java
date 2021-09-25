@@ -9,6 +9,7 @@ import java.util.Random;
 public class Wolf extends Creature implements Movable, Aware, Aggressor, Spawner{
     Random _rand;
     private  WolfDirection wolfDirection;
+    private Boolean canSpawn;
 
     //it is first created, it's preferred direction should be random.
     public  Wolf(){
@@ -17,8 +18,7 @@ public class Wolf extends Creature implements Movable, Aware, Aggressor, Spawner
         int randDirection = _rand.nextInt(4);
         if (randDirection == 0){
             wolfDirection = WolfDirection.Up;
-        }
-        else if( randDirection == 1){
+        } else if( randDirection == 1){
             wolfDirection = WolfDirection.Down;
         }
         else if(randDirection == 2){
@@ -33,6 +33,7 @@ public class Wolf extends Creature implements Movable, Aware, Aggressor, Spawner
     public void attack(Creature target) {
         if (target instanceof Animal){
             target.takeDamage(5);
+            canSpawn = true;
         }
     }
     //senseNeighbors() function is called, the Wolf instance should change its preferred direction
@@ -131,6 +132,12 @@ public class Wolf extends Creature implements Movable, Aware, Aggressor, Spawner
 
     @Override
     public Creature SpawnNewCreature() {
+//        if(canSpawn){
+//            canSpawn = false;
+//            Wolf spawn = new Wolf();
+//            spawn.setLocation(new Point(_location.x -1, _location.y));
+//            return  spawn;
+//        }
         return null;
     }
 }
