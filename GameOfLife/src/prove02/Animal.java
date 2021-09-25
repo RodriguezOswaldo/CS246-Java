@@ -15,14 +15,14 @@ public class Animal extends Creature implements Movable, Aggressor {
 	
 	Random _rand;
 	int plantEaten;
-	
+
 	/**
 	* Creates an animal with 1 health point.
 	*/
 	public Animal() {
 		_rand = new Random();
 		_health = 1;
-		plantEaten = 1;
+		plantEaten = 0;
 	}
 	
 	// No javadocs are necessary for these methods because they will inherit the 

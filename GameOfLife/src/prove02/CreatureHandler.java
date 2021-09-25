@@ -141,7 +141,6 @@ public class CreatureHandler
 				Aggressor a = (Aggressor)c;
 				a.attack(target);
 			}
-
 		}
 	}
 }

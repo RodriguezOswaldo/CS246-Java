@@ -18,7 +18,6 @@ public abstract class Creature {
 	
 	Point _location;
 	int _health;
-	
 	/**
 	* Gets the location of the creature in game coordinates.
 	* @return The current location of the creature.
@@ -63,4 +62,5 @@ public abstract class Creature {
 	* @return A boolean indicating if the creature is alive.
 	*/
 	abstract Boolean isAlive();
+
 }
