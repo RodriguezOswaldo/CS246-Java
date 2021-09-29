@@ -17,8 +17,7 @@ public class TestCollections {
 //    }
 
     public static void main(String[] args ){
-        List<BookOfMormon> bookofMormonPersonages = new
-                ArrayList<>();
+        List<BookOfMormon> bookofMormonPersonages = new ArrayList<>();
         bookofMormonPersonages.add(new BookOfMormon("Alma"));
         bookofMormonPersonages.add(new BookOfMormon("Nephi") );
         bookofMormonPersonages.add(new BookOfMormon("Laman") );
