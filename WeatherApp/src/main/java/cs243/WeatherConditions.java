@@ -13,10 +13,12 @@ public class WeatherConditions {
     // I am creating a  list of the data I am going to get from the API and it will be called weather
     // which is the name found in the API data retrieved.
     List<WeatherConditions2> weather;
+//  Map<String, float>
 
 
 
-    //These are two maps I am creating that have data inside another array coming from the db.
+    //These are two maps I am creating that have data inside another array coming from the API.
+    //The class containing these two maps is declared below as "public class + name"
     public Main main;
     public Sys sys;
 
@@ -31,6 +33,6 @@ public class WeatherConditions {
     }
 
     public class Sys{
-        String name;
+        public String name;
     }
 }
