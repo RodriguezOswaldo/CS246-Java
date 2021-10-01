@@ -15,8 +15,6 @@ public class WeatherConditions {
     List<WeatherConditions2> weather;
 //  Map<String, float>
 
-
-
     //These are two maps I am creating that have data inside another array coming from the API.
     //The class containing these two maps is declared below as "public class + name"
     public Main main;
