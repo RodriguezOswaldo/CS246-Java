@@ -13,6 +13,7 @@ public class Main {
     }
     public static void gsonHttpReturn(String strParse){
         Gson gson = new Gson();
-        Weather we = gson.fromJson(strParse, Weather.class);
+        WeatherConditions we = gson.fromJson(strParse, WeatherConditions.class);
+        System.out.println(WeatherConditions.Main);
     }
 }

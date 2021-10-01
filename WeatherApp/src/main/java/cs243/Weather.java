@@ -9,11 +9,11 @@ public class Weather {
         String description;
     }
 
-    List<Weather2> weather;
-    public String name;
-    public Main main;
-
-    public class Main{
-        public float temp;
-    }
+//    List<Weather2> weather;
+//    public String name;
+//    public Main main;
+//
+//    public class Main{
+//        public float temp;
+//    }
 }
