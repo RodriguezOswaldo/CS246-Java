@@ -1,7 +1,7 @@
 package cs246;
 
 public abstract class ACMEBicycle implements Practice{
-    private static int cadence = 0;
+    public static int cadence = 0;
     private static int speed = 0;
     private static int gear = 1;
     private static int newValue = 0;

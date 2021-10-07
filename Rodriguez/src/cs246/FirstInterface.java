@@ -1,2 +1,5 @@
-package cs246;public interface FirstInterface {
+package cs246;
+
+public interface FirstInterface {
+    void firstMethod(){};
 }

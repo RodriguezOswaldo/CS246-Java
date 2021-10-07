@@ -19,7 +19,7 @@ public class WeatherTest {
     public static void main(String[] args) {
         makeWeatherConditionsRequest();
         makeWeatherForecastRequest();
-        makeWeatherForecastRequestForNCities();
+        //makeWeatherForecastRequestForNCities();
     }
 
     public static void makeWeatherConditionsRequest() {
