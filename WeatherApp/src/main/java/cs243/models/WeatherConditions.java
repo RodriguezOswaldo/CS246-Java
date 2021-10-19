@@ -7,8 +7,6 @@ public class WeatherConditions {
     public int id;
     public String name;
 
-    //public Main main;
-
     @SerializedName("main")
     public MainTemperature measurement;
 
